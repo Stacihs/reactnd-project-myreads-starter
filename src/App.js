@@ -29,8 +29,7 @@ class BooksApp extends Component {
             <div className="open-search">
               <a onClick={() => this.setState({ showSearchPage: true })}>Add a book</a>
             </div>
-          </div>
-        )}
+          </div>c
       </div>
     )
   }
