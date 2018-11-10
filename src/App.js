@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import * as BooksAPI from './BooksAPI'
+import * as BooksAPI from './BooksAPI'
 import './App.css'
 import Library from './components/Library';
 
@@ -13,10 +13,16 @@ class BooksApp extends Component {
      */
     showSearchPage: false
   }
+  componentDidMount() {
+    BooksAPI.getAll().then((books) => {
+      this.setState({books: books});
+      });
+  }
+
   
   render() {
     return (
-      <Library />
+      < Library books={this.state.books}/>
     )
   }
 }
