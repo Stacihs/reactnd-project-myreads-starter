@@ -13,6 +13,8 @@ class BooksApp extends Component {
      */
     showSearchPage: false
   }
+
+  //Fetch all books from API
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({books: books});
