@@ -3,7 +3,8 @@ import BookShelf from './BookShelf'
 
 class Library extends Component { 
     //Create shelves for user to store books
-    refreshShelves = () => {
+    
+    loadShelves = () => {
         const currentRead = {
             title: "Currently Reading",
             books: this.props.books.filter(book => book.shelf === 'currentlyReading')
@@ -23,7 +24,7 @@ class Library extends Component {
     render() {
         let shelves = [];
         if (this.props.books && this.props.books.length) {
-            shelves = this.refreshShelves();
+            shelves = this.loadShelves();
         }
 
         return (
@@ -35,7 +36,7 @@ class Library extends Component {
                     <div className="list-books-content">
                         <div>
                             {shelves && shelves.map((shelf) => (
-                                <BookShelf key={shelf.title} shelf={shelf} />
+                                <BookShelf key={shelf.title} shelf={shelf} onSwitchShelf={this.props.onSwitchShelf}/>
                             ))}
                         </div>
                     </div>
