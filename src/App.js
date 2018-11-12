@@ -21,10 +21,24 @@ class BooksApp extends Component {
       });
   }
 
+  //Function to move a book to a different shelf
+  switchShelf = (book, shelf) => {
+    BooksAPI.update(book, shelf).then(response => {
+      let shelfList = this.state.books.slice(0);
+      const books = shelfList.filter(shelfBook => shelfBook.id === book.id);
+      if (books.length) {
+        books[0].shelf = shelf;
+      } else {
+        shelfList.push(book);
+      }
+      this.setState({books: shelfList})
+    })
+  }
+
   
   render() {
     return (
-      < Library books={this.state.books}/>
+      < Library books={this.state.books} onSwitchShelf={this.switchShelf}/>
     )
   }
 }
