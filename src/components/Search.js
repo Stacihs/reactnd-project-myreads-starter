@@ -7,7 +7,7 @@ class Search extends Component {
             // this.state.showSearchPage
             <div className="search-books">
                 <div className="search-books-bar">
-                    <Link to="/library" className="close-search">Close</Link>
+                    <Link to="/" className="close-search">Close</Link>
                     <div className="search-books-input-wrapper">
                 {/*
                   NOTES: The search from BooksAPI is limited to a particular set of search terms.
