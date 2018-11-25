@@ -7,13 +7,13 @@ import Search from './components/Search'
 
 class BooksApp extends Component {
   state = {
-    showSearchPage: false
+    books: []
   }
 
   //Fetch all books from API
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
-      this.setState({books: books});
+      this.setState({ books });
       });
   }
 
