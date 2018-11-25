@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 import BookShelf from './BookShelf'
 
 class Library extends Component { 
+
     //Create shelves for user to store books
-    
     loadShelves = () => {
         const currentRead = {
             title: "Currently Reading",
