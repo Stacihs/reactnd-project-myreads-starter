@@ -12,9 +12,11 @@ class BooksApp extends Component {
 
   //Fetch all books from API
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({ books });
+    BooksAPI.getAll().then(response => {
+      this.setState({
+        books: response
       });
+    });
   }
 
   //Function to move a book to a different shelf
@@ -27,7 +29,9 @@ class BooksApp extends Component {
       } else {
         shelfList.push(book);
       }
-      this.setState({books: shelfList})
+      this.setState({
+        books: shelfList
+      })
     })
   }
 
