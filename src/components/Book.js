@@ -7,7 +7,7 @@ class Book extends Component {
     }
 
     render() {
-        let url = `url(${this.props.book.imageLinks.thumbnail})`;
+        let bookImage = this.props.book.imageLinks ? this.props.book.imageLinks.thumbnail : "";
         
         return(
             <div className="book">
@@ -17,7 +17,7 @@ class Book extends Component {
                         style={{ 
                             width: 128, 
                             height: 193,
-                            backgroundImage: url
+                            backgroundImage: `url(${bookImage})`
                         }}>
                     </div>
                     <div>
