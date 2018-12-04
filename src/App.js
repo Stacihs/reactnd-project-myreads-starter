@@ -39,13 +39,17 @@ class BooksApp extends Component {
   render() {
     return (
       <div>
-        < Route exact path="/" render = {() => (
-          <Library 
-            books={this.state.books} 
+        <Route exact path="/" render = {() => (
+            <Library 
+              books={this.state.books} 
+              onSwitchShelf={this.switchShelf} 
+            />
+        )}/>
+        <Route path="/search" render = {() => (
+          <Search
             onSwitchShelf={this.switchShelf} 
           />
         )}/>
-        <Route path="/search" component={Search}/>
       </div>
     )
   }
