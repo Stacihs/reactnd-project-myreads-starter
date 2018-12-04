@@ -13,21 +13,31 @@ class Search extends Component {
     updateQuery = (query) => {
         this.setState({
             query: query
-        })
+        },
         this.updateSearchResults(query)
+        )
     }
 
     updateSearchResults = (query) => {
         if (query) {
             BooksAPI.search(query).then((searchResults) => {
-                this.setState({ 
-                    searchResults: searchResults
-                })
+                // No books display upon error
+                if(searchResults.error) {
+                    this.setState({
+                        searchResults: []
+                    });
+                } else {
+                //Show all books that match to user input in search bar
+                    this.setState({
+                        searchResults: searchResults
+                    })    
+                }
             })
         } else {
+            // No books diplayed when search bar is empty
             this.setState({
-                searchResults: []
-            });
+              searchResults: []
+            })
         }
     }
     
