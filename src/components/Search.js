@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
-import escapeRegExp from 'escape-string-regexp'
 import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
 
@@ -20,7 +19,7 @@ class Search extends Component {
 
     updateSearchResults = (query) => {
         if (query) {
-            BooksAPI.search(query).then((searchResults) => {
+            BooksAPI.search(query.trim()).then((searchResults) => {
                 // No books display upon error
                 if(searchResults.error) {
                     this.setState({
@@ -41,7 +40,6 @@ class Search extends Component {
         }
     }
     
-    
     render() {
         return (
             <div className="search-books">
@@ -58,11 +56,11 @@ class Search extends Component {
                 </div>
                 <div className="search-books-results">
                     <ol className="books-grid">
-                        {this.state.searchResults.map(searchResult => 
+                        {this.state.searchResults.map(searchResult => (
                             <li key={searchResult.id}>
                                 <Book book={searchResult} onSwitchShelf={this.props.onSwitchShelf}/>
                             </li>
-                        )}
+                        ))}
                     </ol>
                 </div>
             </div>
