@@ -12,9 +12,9 @@ class BooksApp extends Component {
 
   //Fetch all books from API
   componentDidMount() {
-    BooksAPI.getAll().then((books) => {
+    BooksAPI.getAll().then(response => {
       this.setState({
-        books: books
+        books: response
       })
     })
   }
