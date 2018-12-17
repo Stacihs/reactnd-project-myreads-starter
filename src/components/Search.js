@@ -30,7 +30,6 @@ class Search extends Component {
     updateSearchResults = (query) => {
         if (query) {
             BooksAPI.search(query).then(response => {
-                console.log(response);
                 // No books display upon error
                 if(response.error) {
                     this.setState({
@@ -40,9 +39,7 @@ class Search extends Component {
                 //Show all books that match to user input in search bar
                     response.forEach(b => {
                         let searchResult = this.state.books.filter(B => B.id === b.id);
-                        b.shelf = searchResult[0] ? searchResult.shelf : undefined;
                         if (searchResult[0]) {
-                            console.log('match');
                             b.shelf = searchResult[0].shelf;
                         }
                     });
@@ -52,7 +49,7 @@ class Search extends Component {
                 }
             })
         } else {
-            // No books diplayed when search bar is empty
+            // No books displayed when search bar is empty
             this.setState({
               searchResults: []
             })
