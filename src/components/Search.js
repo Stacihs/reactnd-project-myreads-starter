@@ -57,13 +57,6 @@ class Search extends Component {
     }
     
     render() {
-        // let filteredResults
-        // if (this.state.query) {
-        //     const matchedResults = new RegExp(escapeRegExp(this.state.query), 'i')
-        //     filteredResults = this.props.books.filter((book) => matchedResults.test(book.title) || matchedResults.test(book.authors))
-        // } else {
-        //     filteredResults = this.props.books
-        // }
         return (
             <div className="search-books">
                 <div className="search-books-bar">
