@@ -37,7 +37,11 @@ class Library extends Component {
                     <div className="list-books-content">
                         <div>
                             {shelves && shelves.map((shelf) => (
-                                <BookShelf key={shelf.title} shelf={shelf} onSwitchShelf={this.props.onSwitchShelf}/>
+                                <BookShelf
+                                    key={shelf.title}
+                                    shelf={shelf}
+                                    onSwitchShelf={this.props.onSwitchShelf}
+                                />
                             ))}
                         </div>
                     </div>
@@ -49,4 +53,5 @@ class Library extends Component {
         )
     }
 }
+
 export default Library

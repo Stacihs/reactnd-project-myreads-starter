@@ -19,7 +19,7 @@ class BooksApp extends Component {
     })
   }
 
-  //Function to move a book to a different shelf
+  //Function to move a book to a different shelf. From Doug Brown.
   switchShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(response => {
       let shelfList = this.state.books.slice(0);
@@ -35,20 +35,19 @@ class BooksApp extends Component {
     })
   }
 
-  
   render() {
     return (
       <div>
         <Route exact path="/" render = {() => (
-            <Library 
-              books={this.state.books} 
-              onSwitchShelf={this.switchShelf} 
+            <Library
+              books={this.state.books}
+              onSwitchShelf={this.switchShelf}
             />
         )}/>
         <Route path="/search" render = {() => (
           <Search
             books={this.state.books}
-            onSwitchShelf={this.switchShelf} 
+            onSwitchShelf={this.switchShelf}
           />
         )}/>
       </div>

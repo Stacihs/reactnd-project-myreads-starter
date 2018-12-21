@@ -21,7 +21,10 @@ class Book extends Component {
                         }}>
                     </div>
                     <div>
-                        <BookShelfControl book={this.props.book} onSwitchShelf={this.props.onSwitchShelf}/>
+                        <BookShelfControl
+                            book={this.props.book}
+                            onSwitchShelf={this.props.onSwitchShelf}
+                        />
                     </div>
                 </div>
                 <div className="book-title">{this.props.book.title}</div>
