@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../BooksAPI'
 import Book from './Book'
-import escapeRegExp from 'escape-string-regexp'
 
 class Search extends Component {
     state = {
@@ -36,7 +35,7 @@ class Search extends Component {
                         searchResults: []
                     });
                 } else {
-                //Show all books that match to user input in search bar
+                //If the resulting searched book is also on a shelf, this matches its search page state to the library page state
                     response.forEach(b => {
                         let searchResult = this.state.books.filter(B => B.id === b.id);
                         if (searchResult[0]) {
